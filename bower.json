@@ -1,0 +1,23 @@
+{
+  "name": "expo",
+  "description": "Exponential-e developer technical challenge",
+  "main": "index.js",
+  "authors": [
+    "sekhar karri"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ee-jake-d/expo-e-dev-challenge",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-resource": "^1.5.3",
+    "angular-route": "^1.5.3"
+  }
+}
