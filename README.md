@@ -24,3 +24,18 @@ Please demonstrate:
 | Old Co Ltd  | Small wongle | 6         |
 | Old Co Ltd  | Large wongle | 9         |
 | Old Co Ltd  | Super wongle | 4         |
+
+# My Views in attacking this challenge
+
+Note:
+ * Please run npm install and bower install in order to run this application
+
+### Converted this simple single page web application into a application using MEAN stack
+### MEAN(MongoDB, Express JS, Angular JS, Node JS)
+
+Changes:
+* I would like to use express js as server for this application.
+* Created a new database called expo and challange collection
+* used Angular JS as front end framework for this application.
+* Used jade as template engine
+* Used stylus as CSS preprocessor.
