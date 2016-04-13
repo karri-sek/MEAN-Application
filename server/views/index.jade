@@ -27,31 +27,4 @@ block main-content
         .row
             .col-sm-12.col-md-12.main
                 h1.page-header Product pricing
-                form
-                    .row
-                        .form-group.col-md-6
-                            label(for='selSupplier') Supplier
-                            select#selSupplier.form-control
-                                option New Co Ltd
-                                option Old Co Ltd
-                        .form-group.col-md-6
-                            label(for='selProduct') Product
-                            select#selProduct.form-control
-                                option Small wongle
-                                option Large wongle
-                                option Super wongle
-                h2.sub-header Product details
-                .table-responsive
-                    table.table.table-striped
-                        thead
-                            tr
-                                th #
-                                th Supplier
-                                th Product
-                                th Price
-                        tbody
-                            tr
-                                td x
-                                td xxxx
-                                td xxxx
-                                td xxxx
+            div(ng-include="'/partials/selection'")

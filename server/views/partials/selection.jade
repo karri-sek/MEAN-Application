@@ -1,0 +1,29 @@
+form
+    .row
+        .form-group.col-md-4
+            label(for='selSupplier') Supplier
+            select#selSupplier.form-control(ng-model="supplierName")
+                option New Co Ltd
+                option Old Co Ltd
+        .form-group.col-md-4
+            label(for='selProduct') Product
+            select#selProduct.form-control(ng-model="productName")
+                option Small wongle
+                option Large wongle
+                option Super wongle
+        button.btn.btn-primary(ng-click="'fetchDetails(supplierName,productName)'") Search
+h2.sub-header Product details
+.table-responsive
+    table.table.table-striped
+        thead
+            tr
+                th #
+                th Supplier
+                th Product
+                th Price
+        tbody
+            tr
+                td x
+                td xxxx
+                td xxxx
+                td xxxx
