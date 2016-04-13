@@ -40,8 +40,7 @@ db.once('open', function callback(){
 var salesSchema = mongoose.Schema({supplier: String, product: String, price: String});
 
 //Create model
-
-var SalesModel = mongoose.model('SalesModel', salesSchema);
+var SalesModel = mongoose.model('challenge', salesSchema);
 
 //Find sales
 var price;

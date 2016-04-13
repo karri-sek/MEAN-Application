@@ -1,11 +1,15 @@
 doctype
 html
   head
-  link(href="/favicon.ico", rel="shortcut icon", type='image/x-icon')
-  link(rel="stylesheet", href="/css/bootstrap.min.css")
-  link(rel="stylesheet", href="/vendor/toastr/toastr.css")
-  link(rel="stylesheet", href="/css/site.css")
-
-    body(ng-app='app')
-      block main-content
-      include scripts
+    base(href="/")
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title	Exponential-e Tech Challenge
+    link(href="/favicon.ico", rel="shortcut icon", type='image/x-icon')
+    link(rel="stylesheet", href="/css/bootstrap.css")
+    link(rel="stylesheet", href="/vendor/toastr/toastr.css")
+    link(rel="stylesheet", href="/css/site.css")
+  body(ng-app='app')
+  block main-content
+  include scripts
