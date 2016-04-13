@@ -1,7 +1,8 @@
 var express = require('express'),
     stylus  = require('stylus'),
     logger  = require('morgan'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    mongoose   =  require('mongoose');
 
 var env = process.env.NODE_ENV  = process.env.NODE_ENV  || 'development';
 
@@ -27,11 +28,38 @@ app.use(stylus.middleware(
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/partials/:partialPath', function(req,res){
-  res.render('partials/' + req.params.partialPath)
+//Connect to mongoDB
+mongoose.connect('mongodb://localhost/expo');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console,'connection error ....'));
+db.once('open', function callback(){
+   console.log('expo db opened');
 });
+
+//Creating schema for products and sales
+var salesSchema = mongoose.Schema({supplier: String, product: String, price: String});
+
+//Create model
+
+var SalesModel = mongoose.model('SalesModel', salesSchema);
+
+//Find sales
+var price;
+  SalesModel.findOne().exec(function(err,salesRecord){
+    record = salesRecord.price;
+  });
+
+
+app.get('/partials/:partialPath', function(req,res){
+  res.render('partials/' + req.params.partialPath);
+});
+
+//Passing price to the index template 
+
 app.get('*', function(req,res){
-  res.render('index');
+  res.render('index', {
+  	  price : price
+  });
 });
 
 var port = 3030;
