@@ -1,5 +1,5 @@
-form
-    .row
+.row
+    form.navbar-form(ng-controller="searchCtrl")
         .form-group.col-md-4
             label(for='selSupplier') Supplier
             select#selSupplier.form-control(ng-model="supplierName")
@@ -11,7 +11,8 @@ form
                 option Small wongle
                 option Large wongle
                 option Super wongle
-        button.btn.btn-primary(ng-click="'fetchDetails(supplierName,productName)'") Search
+        .form-group.col-md-2
+            button.btn.btn-primary(ng-click="search(supplierName,productName)") Search
 h2.sub-header Product details
 .table-responsive
     table.table.table-striped

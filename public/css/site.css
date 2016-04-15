@@ -1,0 +1,9 @@
+body {
+  padding-top: 61px;
+}
+body .navbar-form .form-group {
+  margin-left: 10px;
+}
+body .navbar-form button {
+  margin-left: 10px;
+}
