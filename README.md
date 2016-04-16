@@ -1,31 +1,20 @@
-# Exponential-e developer technical challenge
+## My Views in attacking this challenge
 
-We're hoping to see how you approach a challenge and what sort of standards you use in your code so please feel free to be as creative as you like.
+## There are two versions of solutions in this repo.
 
-### Instructions
+* simply index.html contains the inbuilt angular script which fetches the data and display's it.
+* A MEAN stack application is created in order to fetch the results from mongoDB.
 
-```
-$ npm install -g bower
-$ bower install bootstrap
-```
+# Steps to execute:
+## Solution 1
+### simply open the index.html in any browser and click the search button, it will fetch the results and displays it.
 
-Please demonstrate:
-* The ability to select supplier and product in the drop-down menus
-* A round-trip to a server pulling back the appropriate prices
-* Displaying the returned data in the grid
+## Solution 2
+### clone the repo
+### npm install from the repo directory
+### bower install
+### nodemon server.js
 
-### Sample data
-
-| Supplier    | Product      | Price (£) |
-| ------------|--------------|-----------|
-| New Co Ltd  | Small wongle | 5         |
-| New Co Ltd  | Large wongle | 8         |
-| New Co Ltd  | Super wongle | 12        |
-| Old Co Ltd  | Small wongle | 6         |
-| Old Co Ltd  | Large wongle | 9         |
-| Old Co Ltd  | Super wongle | 4         |
-
-# My Views in attacking this challenge
 
 Note:
  * Please run npm install and bower install in order to run this application
