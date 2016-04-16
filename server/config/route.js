@@ -5,7 +5,12 @@ module.exports = function(app){
         res.render('partials/' + req.params[0]);
     });
 
+    app.get('/getDetails', function(req, res, next){
+
+    });
+
     app.get('*', function(req,res){
-        res.render('index');
+        console.log('response');
+        res.render('index',res.resultRecord);   
     });
 }
