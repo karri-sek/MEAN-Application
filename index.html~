@@ -7,9 +7,9 @@
 
     <title>Exponential-e Tech Challenge</title>
 
-    <link href="public/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="public/css/dashboard.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
 
 </head>
 
@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="public/img/expo-e-logo-white.png" class="img-responsive"
+            <a class="navbar-brand" href="#"><img src="img/expo-e-logo-white.png" class="img-responsive"
                                                   alt="Exponential-e"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -48,20 +48,20 @@
             <h1 class="page-header">Product pricing</h1>
 
             <form>
-                <div class="row dropdown dropdown-content">
+                <div class="row">
                     <div class="form-group col-md-4">
                         <label for="selSupplier">Supplier</label>
-                        <select autofocus class="form-control" id="selSupplier" ng-model="supplier">
-                            <option value="New Co Ltd">New Co Ltd</option>
-                            <option value="Old Co Ltd">Old Co Ltd</option>
+                        <select class="form-control" id="selSupplier" ng-model="supplier">
+                            <option>New Co Ltd</option>
+                            <option>Old Co Ltd</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="selProduct">Product</label>
                         <select class="form-control" id="selProduct" ng-model="product">
-                            <option value="Small wongle">Small wongle</option>
-                            <option value="Large wongle">Large wongle</option>
-                            <option value="Super wongle">Super wongle</option>
+                            <option>Small wongle</option>
+                            <option>Large wongle</option>
+                            <option>Super wongle</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
@@ -101,15 +101,15 @@
 </div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="public/vendor/jquery/dist/jquery.min.js"></script>
-<script src="public/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/bootstrap.min.js"></script>
 <script>
     var app = angular.module("expo", []);
     app.controller("myCtrl", function ($scope) {
         $scope.displayItem = function (supplier, product) {
             var result = {};
+
             if (supplier && product) {
-                $scope.error = null;
                 result.supplier = supplier;
                 result.product = product;
                 if (supplier === "New Co Ltd") {
@@ -139,7 +139,7 @@
                     }
                 }
             } else {
-                return $scope.error = "Please select supplier/product name from drop down menu.";
+                return $scope.error = "Please select supplier/product name from drop down.";
             }
             $scope.result = result;
         }
