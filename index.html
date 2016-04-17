@@ -54,6 +54,7 @@
                         <select autofocus class="form-control" id="selSupplier" ng-model="supplier">
                             <option value="New Co Ltd">New Co Ltd</option>
                             <option value="Old Co Ltd">Old Co Ltd</option>
+                            <option value="All">All</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
@@ -62,6 +63,7 @@
                             <option value="Small wongle">Small wongle</option>
                             <option value="Large wongle">Large wongle</option>
                             <option value="Super wongle">Super wongle</option>
+                            <option value="All">All</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
@@ -87,7 +89,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
+                    <tr ng-repeat="result in results">
                         <td>#</td>
                         <td>{{result.supplier}}</td>
                         <td>{{result.product}}</td>
@@ -104,39 +106,53 @@
 <script src="public/vendor/jquery/dist/jquery.min.js"></script>
 <script src="public/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 <script>
-    var app = angular.module("expo", []);
-    app.controller("myCtrl", function ($scope) {
+    var app = angular.module("expo", []).controller("myCtrl", function ($scope) {
         $scope.displayItem = function (supplier, product) {
-            var result = {};
-            if (supplier && product) {
-                $scope.error = null;
-                result.supplier = supplier;
-                result.product = product;
-                if (supplier === "New Co Ltd") {
-                    switch (product) {
-                        case "Small wongle":
-                            result.price = 5;
-                            break;
-                        case "Large wongle":
-                            result.price = 8;
-                            break;
-                        case "Super wongle":
-                            result.price = 12;
-                            break;
+            if (supplier === 'All' && product === 'All') {
+                return $scope.results = [
+                    {supplier: 'New Co Ltd', product: 'Small wongle', price: '5'},
+                    {supplier: 'New Co Ltd', product: 'Large wongle', price: '8'},
+                    {supplier: 'New Co Ltd', product: 'Super wongle', price: '12'},
+                    {supplier: 'Old Co Ltd', product: 'Small wongle', price: '5'},
+                    {supplier: 'Old Co Ltd', product: 'Large wongle', price: '8'},
+                    {supplier: 'Old Co Ltd', product: 'Super wongle', price: '12'}
+                ];
+            }
+            else if (supplier && product) {
+                if (supplier === 'All' || product === 'All') {
+                    return $scope.error = "Please select supplier/product valid combination from down menu.";
+                } else {
+                    $scope.error = null;
+                    var rprice = null;
+                    if (supplier === "New Co Ltd") {
+                        switch (product) {
+                            case "Small wongle":
+                                rprice = 5;
+                                break;
+                            case "Large wongle":
+                                rprice = 8;
+                                break;
+                            case "Super wongle":
+                                rprice = 12;
+                                break;
+                        }
                     }
-                }
-                if (supplier === "Old Co Ltd") {
-                    switch (product) {
-                        case "Small wongle":
-                            result.price = 6;
-                            break;
-                        case "Large wongle":
-                            result.price = 9;
-                            break;
-                        case "Super wongle":
-                            result.price = 4;
-                            break;
+                    if (supplier === "Old Co Ltd") {
+                        switch (product) {
+                            case "Small wongle":
+                                rprice = 6;
+                                break;
+                            case "Large wongle":
+                                rprice = 9;
+                                break;
+                            case "Super wongle":
+                                rprice = 4;
+                                break;
+                        }
                     }
+                    return $scope.results = [
+                        {supplier: supplier, product: product, price: rprice}
+                    ]
                 }
             } else {
                 return $scope.error = "Please select supplier/product name from drop down menu.";
