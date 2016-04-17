@@ -7,13 +7,15 @@
 
 # Steps to execute:
 ## Solution 1
-### simply open the index.html in any browser and click the search button, it will fetch the results and displays it.
+##### simply open the index.html in any browser and click the search button, it will fetch the results and displays it.
+##### paths to the css and js are related to this repository, please download the code base if the css not rendered properly.
 
 ## Solution 2
 ### clone the repo
 ### npm install from the repo directory
 ### bower install
 ### nodemon server.js
+### server starts listen at http://localhost:3030/ open this in browser.
 
 
 Note:
